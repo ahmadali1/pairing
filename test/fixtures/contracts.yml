@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: one
+  active: false
+  start_date: 2021-05-27
+  end_date: 2021-05-27
+  type: 1
+  coverage: 1.5
+  premium: 1.5
+  renewable: false
+
+two:
+  customer: two
+  active: false
+  start_date: 2021-05-27
+  end_date: 2021-05-27
+  type: 1
+  coverage: 1.5
+  premium: 1.5
+  renewable: false

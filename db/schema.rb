@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_27_094506) do
+ActiveRecord::Schema.define(version: 2021_05_27_095116) do
+
+  create_table "contracts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "customer_id", null: false
+    t.boolean "active", default: false
+    t.date "start_date", null: false
+    t.date "end_date", null: false
+    t.integer "c_type"
+    t.float "coverage"
+    t.float "premium"
+    t.boolean "renewable"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_contracts_on_customer_id"
+  end
 
   create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -19,4 +33,5 @@ ActiveRecord::Schema.define(version: 2021_05_27_094506) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "contracts", "customers"
 end
