@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_27_102718) do
+ActiveRecord::Schema.define(version: 2021_05_27_103007) do
 
   create_table "contract_logs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "contract_id", null: false
@@ -43,6 +43,18 @@ ActiveRecord::Schema.define(version: 2021_05_27_102718) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "invoices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "contract_id", null: false
+    t.float "amount"
+    t.date "date"
+    t.boolean "is_paid"
+    t.text "payment_details"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["contract_id"], name: "index_invoices_on_contract_id"
+  end
+
   add_foreign_key "contract_logs", "contracts"
   add_foreign_key "contracts", "customers"
+  add_foreign_key "invoices", "contracts"
 end
