@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contract: one
+  adjusted_at: 2021-05-27
+  previous_premium: 1.5
+  reason: MyText
+
+two:
+  contract: two
+  adjusted_at: 2021-05-27
+  previous_premium: 1.5
+  reason: MyText
